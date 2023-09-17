@@ -1,0 +1,99 @@
+programa{
+    inclua biblioteca Util-->u
+    inteiro sorteio = u.sorteia(1,100)
+    caracter opcao
+    cadeia menu
+    real numero
+    inteiro contador = 1
+    logico reiniciar = verdadeiro
+
+  funcao inicio(){
+    enquanto(reiniciar){
+      menu()
+    }
+  }
+    funcao reiniciar77(){
+      cadeia respostaReiniciar
+
+      escreva("\n\nPara jogar novamente aperte a tecla 's' ou escreva 'sim', ou qualquer letra para finalizar :) \n")
+      escreva("Resposta:\t")
+      leia(respostaReiniciar)
+
+      se (respostaReiniciar == "s" ou respostaReiniciar == "S" ou respostaReiniciar == "sim" ou respostaReiniciar == "Sim" ou respostaReiniciar == "SIM"){
+      reiniciar = verdadeiro
+      }
+      senao{
+        reiniciar = falso
+      }
+    }
+
+  funcao menu(){
+    escreva("Jogo da adivinhação\n")
+    escreva("Menu:\n")
+    escreva("1 - Ler regras\n")
+    escreva("2 - Controles\n")
+    escreva("3 - Jogar\n")
+    escreva("\nresposta:\t")
+    leia(opcao)
+    limpa()
+
+      se (opcao == 1 ){
+        escreva("Regras:\n")
+        escreva("Nesse jogo você tera '10' tentativas para acerta o numero sorteado\n")
+        escreva("O jogo dira se você estiver digitanto um numero maior ou menor que o numero sorteado\n")
+        escreva("Use somente numeros inteiros\n")
+        escreva("Voltar para o Menu ?\n")
+        leia(menu)
+      } 
+
+      se (opcao == 2){
+       escreva("Para voltar para o menu pricipal em qualquer momento, basta digiar a palavra 'menu'\n")
+       escreva("\No final do jogo digite 'Sim' para começar novament o jogo\n")
+       escreva("Voltar para Menu principal? digite 'menu':")
+       leia(menu)
+      }
+
+      se (opcao == 3){
+       escreva("Jogo da adivinhação\n")
+       escreva("\nNesse jogo você tera 10 tentativas para acerta o numero sortiado, te darei dicas se você estiver perto de acertar!\n")
+       escreva("\nDigite um numero aleatorio:\t")
+       jogo()
+      } 
+  }
+  funcao jogo(){
+
+    real numero
+    inteiro contador = 1
+    leia(numero)
+
+    enquanto(contador <10){
+
+      se (numero == sorteio){
+        limpa()
+        escreva("Parabens, você acertou o numero\n")
+        reiniciar77()
+        limpa()
+        pare
+       }
+
+      se (numero > sorteio){
+       limpa()
+       escreva("\n",numero ,"\té maior que o numero sortiado, você perdeu\t",contador,"\ttentativa\n")
+       escreva("tente novamente:")
+       leia(numero)
+        contador++
+      }
+
+      se (numero < sorteio){
+        limpa()
+        escreva("\n",numero ,"\té menor que o numero sortiado, você perdeu\t",contador,"\ttentativa\n")
+        escreva("tente novamente:")
+        leia(numero)
+        contador++
+      }
+      se (contador ==10){
+        escreva("Você perdeu o jogo!!")
+      }
+    }
+  }
+}
