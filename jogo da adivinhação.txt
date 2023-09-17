@@ -55,7 +55,7 @@ programa{
 
       se (opcao == 3){
        escreva("Jogo da adivinhação\n")
-       escreva("\nNesse jogo você tera 10 tentativas para acerta o numero sortiado, te darei dicas se você estiver perto de acertar!\n")
+       escreva("\nNesse jogo você tera 10 tentativas para acerta o numero sorteado, te darei dicas se você estiver perto de acertar!\n")
        escreva("\nDigite um numero aleatorio:\t")
        jogo()
       } 
